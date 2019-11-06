@@ -19,7 +19,7 @@ https://www.52pojie.cn/thread-964577-1-1.html (not complete)
 
 ## Warning
 
-This code only be tested in Windows10 1803.
+This code is only tested in Windows10 1803.
 
 ## Screenshots
 
