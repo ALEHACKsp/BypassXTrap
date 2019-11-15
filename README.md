@@ -6,7 +6,7 @@ This is a tool to bypass XTrap(32-bit), made for talesrunner(HongKong Server). Y
 
 ## Usage
 
-run `Injector.exe`
+run `Injector.exe` after game starts
 
 ## Analysis
 

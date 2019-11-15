@@ -53,14 +53,14 @@ VOID SuspendXTrapDriver()
 
 	for (int i = 0; i < HandleInfo->NumberOfHandles; i++)
 	{
-		if (HandleInfo->Handles[i].UniqueProcessId == GetCurrentProcessId()
-			&& HandleInfo->Handles[i].ObjectTypeIndex == 0x24) //File index is 0x24 in win10 17134
+		if (HandleInfo->Handles[i].UniqueProcessId == GetCurrentProcessId())
 		{
 			hObject = (HANDLE)HandleInfo->Handles[i].HandleValue;
 			ObjectNameInfo = (POBJECT_NAME_INFORMATION)malloc(0x1000);
 			RtlZeroMemory(ObjectNameInfo, 0x1000);
 			status = pfnNtQueryObject(hObject, ObjectNameInformation, ObjectNameInfo, 0x1000, &RetLen);
-			if (!NT_SUCCESS(status))
+			if (!NT_SUCCESS(status)
+				|| ObjectNameInfo->Name.Length == 0)
 			{
 				free(ObjectNameInfo);
 				continue;
